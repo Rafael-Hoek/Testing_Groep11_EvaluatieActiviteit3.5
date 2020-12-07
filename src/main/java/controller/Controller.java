@@ -1,6 +1,6 @@
 package controller;
 
-import domain.service.PatientService;
+import domain.service.ProductService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,9 +11,13 @@ import java.io.IOException;
 
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
-
-    private PatientService service = PatientService.getInstance();
+    private static final long serialVersionUID = 1L;
+    private ProductService service = new ProductService();
     private HandlerFactory handlerFactory = new HandlerFactory();
+
+    public Controller() {
+        super();
+    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
@@ -25,23 +29,16 @@ public class Controller extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String command = request.getParameter("command");
-
-        if (command == null) {
-            command = "Index";
+        String destination = "index.jsp";
+        if (command != null) {
+            try {
+                RequestHandler handler = handlerFactory.getHandler(command, service);
+                destination = handler.handleRequest(request, response);
+            } catch (Exception e) {
+                request.setAttribute("error", e);
+                destination = "error.jsp";
+            }
         }
-
-        String destination;
-
-        try {
-            RequestHandler handler = handlerFactory.getHandler(command);
-            destination = handler.handleRequest(request, response);
-        } catch (Exception e) {
-            System.out.println(e.getStackTrace()[0] + " : " + e.getMessage());
-            request.setAttribute("error", e.getMessage());
-            destination = "error.jsp";
-        }
-
         request.getRequestDispatcher(destination).forward(request, response);
-
     }
 }
