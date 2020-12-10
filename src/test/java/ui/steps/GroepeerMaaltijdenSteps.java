@@ -21,7 +21,7 @@ public class GroepeerMaaltijdenSteps {
         //System.setProperty("webdriver.chrome.driver", "/Users/.../web3pers/chromedriver");
         // windows: gebruik dubbele \\ om pad aan te geven
         // hint: zoek een werkende test op van web 2 ...
-        System.setProperty("webdriver.chrome.driver", "D:\\school\\chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:\\school\\chromedriver.exe");
         driver = new ChromeDriver();
     }
 

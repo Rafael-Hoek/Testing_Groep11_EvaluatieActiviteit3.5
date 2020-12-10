@@ -12,6 +12,7 @@ public class MealsPage extends Page{
 
     public MealsPage(WebDriver driver) {
         super(driver);
+        goToPage();
     }
 
     public void goToPage(){
@@ -34,6 +35,15 @@ public class MealsPage extends Page{
         return found;
     }
 
+    public boolean containsMealWith (String ssn) {
+        List<WebElement> trs = driver.findElements(By.cssSelector("td"));
+        for (WebElement tr: trs) {
+            if (tr.getText().equals(ssn)){
+                return true;
+            }
+        }
+        return false;
+    }
     public boolean thereAreMeals() {
         List<WebElement> listItems = this.driver.findElements(By.cssSelector("td"));
         return !listItems.isEmpty();
