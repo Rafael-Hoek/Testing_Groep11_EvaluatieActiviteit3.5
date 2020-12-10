@@ -31,15 +31,7 @@ public class GroepeerMaaltijdenSteps {
         driver.quit();
     }
 
-    @Given("dat er maaltijden op het menu staan")
-    public void er_staan_maaltijden_op_het_menu() {
 
-    }
-
-    @When("“Rafael” op het menu kijkt")
-    public void Rafael_kijkt_op_het_menu() {
-
-    }
 
     @Then("worden alle maaltijden getoond, gegroepeerd per categorie")
     public void maaltijden_worden_gegroepeerd_getoond() {
