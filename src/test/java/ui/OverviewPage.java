@@ -9,6 +9,7 @@ import java.util.List;
 public class OverviewPage extends Page {
     public OverviewPage(WebDriver driver) {
         super(driver);
+        this.driver.get(getPath()+"?command=Overview");
     }
 
 
