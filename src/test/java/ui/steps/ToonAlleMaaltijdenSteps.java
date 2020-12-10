@@ -21,9 +21,13 @@ public class ToonAlleMaaltijdenSteps {
 
     private Page currentPage;
 
+
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "D:\\school\\2e jaar\\Semester 1\\Web3\\Chromedriver\\87\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "/Users/.../web3pers/chromedriver");
+        // windows: gebruik dubbele \\ om pad aan te geven
+        // hint: zoek een werkende test op van web 2 ...
+        System.setProperty("webdriver.chrome.driver", "D:\\school\\chromedriver");
         driver = new ChromeDriver();
     }
 
