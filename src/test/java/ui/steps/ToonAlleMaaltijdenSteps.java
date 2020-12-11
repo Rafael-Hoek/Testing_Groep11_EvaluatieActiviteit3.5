@@ -60,6 +60,6 @@ public class ToonAlleMaaltijdenSteps {
 
     @Then("krijgt “Rafael” een melding dat er momenteel nog geen broodjes op het menu staan")
     public void Rafael_krijgt_een_melding_dat_er_geen_broodjes_zijn() {
-
+        ((MealsPage) currentPage).containsStringNoMeals();
     }
 }

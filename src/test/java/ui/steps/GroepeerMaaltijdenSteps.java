@@ -27,7 +27,6 @@ public class GroepeerMaaltijdenSteps {
 
     @After
     public void clean() {
-        driver.get(path+"?command=DeleteAll");
         driver.quit();
     }
 

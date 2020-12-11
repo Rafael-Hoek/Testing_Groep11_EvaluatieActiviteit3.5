@@ -19,6 +19,10 @@ public class MealsPage extends Page{
         this.driver.get(getPath()+"?command=Overview");
     }
 
+    public void goToPageNoMeals(WebDriver driver) {
+        this.driver.get(getPath()+"?command=OverviewLeeg");
+    }
+
     public boolean containsMealWithName(String name) {
 
         List<WebElement> listItems= driver.findElements(By.cssSelector("table tr"));
@@ -44,10 +48,15 @@ public class MealsPage extends Page{
         }
         return false;
     }
+
     public boolean thereAreMeals() {
         List<WebElement> listItems = this.driver.findElements(By.cssSelector("td"));
         return !listItems.isEmpty();
 
+    }
+
+    public boolean containsStringNoMeals() {
+        return driver.getPageSource().contains("Er zijn momenteel nog geen broodjes op het menu.");
     }
 
 }
