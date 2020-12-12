@@ -38,12 +38,11 @@ public class ToonAlleMaaltijdenSteps {
 
     @Given("dat er maaltijden op het menu staan")
     public void Er_staan_maaltijden_op_het_menu() {
-
+        currentPage = PageFactory.initElements(driver, MealsPage.class);
     }
 
     @When("“Rafael” op het menu kijkt")
     public void Rafael_kijkt_op_het_menu() {
-        currentPage = PageFactory.initElements(driver, MealsPage.class);
     }
 
     @Then("worden alle maaltijden getoond die op het menu staan")
@@ -55,7 +54,8 @@ public class ToonAlleMaaltijdenSteps {
 
     @Given("er geen maaltijden op het menu staan")
     public void er_staan_geen_maaltijden_op_het_menu() {
-
+        currentPage = PageFactory.initElements(driver, MealsPage.class);
+        ((MealsPage) currentPage).goToPageNoMeals();
     }
 
     @Then("krijgt “Rafael” een melding dat er momenteel nog geen broodjes op het menu staan")

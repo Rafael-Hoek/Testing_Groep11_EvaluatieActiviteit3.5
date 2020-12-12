@@ -16,16 +16,16 @@ public class MealsPage extends Page{
     }
 
     public void goToPage(){
-        this.driver.get(getPath()+"?command=Overview");
+        getDriver().get(getPath()+"?command=Overview");
     }
 
-    public void goToPageNoMeals(WebDriver driver) {
-        this.driver.get(getPath()+"?command=OverviewLeeg");
+    public void goToPageNoMeals() {
+        getDriver().get(getPath()+"?command=OverviewLeeg");
     }
 
     public boolean containsMealWithName(String name) {
 
-        List<WebElement> listItems= driver.findElements(By.cssSelector("table tr"));
+        List<WebElement> listItems= getDriver().findElements(By.cssSelector("table tr"));
         List<String> names = Arrays.asList(name.split(" "));
         boolean found = false;
 
@@ -40,7 +40,7 @@ public class MealsPage extends Page{
     }
 
     public boolean containsMealWith(String thing) {
-        List<WebElement> trs = driver.findElements(By.cssSelector("td"));
+        List<WebElement> trs = getDriver().findElements(By.cssSelector("td"));
         for (WebElement tr: trs) {
             if (tr.getText().equals(thing)){
                 return true;
@@ -50,17 +50,17 @@ public class MealsPage extends Page{
     }
 
     public boolean thereAreMeals() {
-        List<WebElement> listItems = this.driver.findElements(By.cssSelector("td"));
+        List<WebElement> listItems = getDriver().findElements(By.cssSelector("td"));
         return !listItems.isEmpty();
 
     }
 
     public boolean containsStringNoMeals() {
-        return driver.getPageSource().contains("Er zijn momenteel nog geen broodjes op het menu.");
+        return getDriver().getPageSource().contains("Er zijn momenteel nog geen broodjes op het menu.");
     }
 
     public boolean containsCategory(String categorie) {
-        List<WebElement> trs = driver.findElements(By.cssSelector("h2"));
+        List<WebElement> trs = getDriver().findElements(By.cssSelector("h2"));
         for (WebElement tr: trs) {
             if (tr.getText().equals(categorie)){
                 return true;
