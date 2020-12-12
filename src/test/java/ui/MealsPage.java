@@ -39,10 +39,10 @@ public class MealsPage extends Page{
         return found;
     }
 
-    public boolean containsMealWith (String ssn) {
+    public boolean containsMealWith(String thing) {
         List<WebElement> trs = driver.findElements(By.cssSelector("td"));
         for (WebElement tr: trs) {
-            if (tr.getText().equals(ssn)){
+            if (tr.getText().equals(thing)){
                 return true;
             }
         }
@@ -59,4 +59,13 @@ public class MealsPage extends Page{
         return driver.getPageSource().contains("Er zijn momenteel nog geen broodjes op het menu.");
     }
 
+    public boolean containsCategory(String categorie) {
+        List<WebElement> trs = driver.findElements(By.cssSelector("h2"));
+        for (WebElement tr: trs) {
+            if (tr.getText().equals(categorie)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

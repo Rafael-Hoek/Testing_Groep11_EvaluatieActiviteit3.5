@@ -7,7 +7,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import ui.MealsPage;
 import ui.Page;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class GroepeerMaaltijdenSteps {
     private WebDriver driver;
@@ -31,9 +36,18 @@ public class GroepeerMaaltijdenSteps {
     }
 
 
+    @Given("dat er maaltijden op het menu staan")
+
+    @When("“Rafael” op het menu kijkt")
+    public void Rafael_kijkt_op_het_menu() {
+        currentPage = PageFactory.initElements(driver, MealsPage.class);
+    }
 
     @Then("worden alle maaltijden getoond, gegroepeerd per categorie")
     public void maaltijden_worden_gegroepeerd_getoond() {
-
+        assertEquals("Product Overview", driver.getTitle());
+        assertTrue(((MealsPage)currentPage).containsCategory("Broodjes"));
+        assertTrue(((MealsPage)currentPage).containsCategory("Pasta's"));
+        assertTrue(((MealsPage)currentPage).containsCategory("Soepen"));
     }
 }

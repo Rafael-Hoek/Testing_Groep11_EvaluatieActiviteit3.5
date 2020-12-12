@@ -17,7 +17,7 @@
         <main>
             <c:choose>
                 <c:when test="${empty broodjes && empty pastas && empty soepen}">
-                    <p>Er zijn momenteel nog geen broodjes op het menu.</p>
+                    <p>Er zijn momenteel nog geen maltijden op het menu.</p>
                 </c:when>
             </c:choose>
             <c:choose>
