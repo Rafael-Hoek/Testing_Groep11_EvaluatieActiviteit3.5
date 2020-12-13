@@ -24,7 +24,7 @@ public class ToonPrijsSteps {
         // windows: gebruik dubbele \\ om pad aan te geven
         // hint: zoek een werkende test op van web 2 ...
         //System.setProperty("webdriver.chrome.driver", "C:\\school\\chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\rickc\\Documents\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\school\\chromedriver.exe");
         driver = new ChromeDriver();
         currentPage = PageFactory.initElements(driver, MealsPage.class);
     }
