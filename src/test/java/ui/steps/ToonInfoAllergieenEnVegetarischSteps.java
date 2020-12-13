@@ -10,13 +10,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import ui.MealsPage;
 import ui.Page;
-import ui.PatientsPage;
 
 import static org.junit.Assert.assertTrue;
 
-public class ToonInfoAllergieënEnVegetarischSteps {
+public class ToonInfoAllergieenEnVegetarischSteps {
     private WebDriver driver;
-    private String path = "http://localhost:8080/Controller";
+    private String path = "http://localhost:8080/Testing_3_5_war_exploded/Controller";
 
     private Page currentPage;
 
@@ -36,13 +35,13 @@ public class ToonInfoAllergieënEnVegetarischSteps {
     }
 
     @Given("dat er een maaltijd zonder allergieën op het menu staat")
-    public void dat_Er_Een_Maaltijd_Zonder_Allergieën_Op_Het_Menu_Staat() {
-
+    public void dat_Er_Een_Maaltijd_Zonder_Allergieen_Op_Het_Menu_Staat() {
+        assertTrue(((MealsPage)currentPage).containsGeenInfo());
     }
 
     @When("“Rafael” naar deze maaltijd kijkt")
     public void rafael_Naar_Deze_Maaltijd_Kijkt() {
-
+        currentPage = PageFactory.initElements(driver, MealsPage.class);
     }
 
     @Then("ziet “Rafael” welke broodjes vegetarisch zijn en welke broodjes een allergische reactie kunnen veroorzaken")
@@ -51,7 +50,7 @@ public class ToonInfoAllergieënEnVegetarischSteps {
     }
 
     @Then("krijgt “Rafael” te zien dat de maaltijd geen allergieën bevat")
-    public void krijgt_Rafael_Te_Zien_Dat_De_Maaltijd_Geen_Allergieën_Bevat() {
+    public void krijgt_Rafael_Te_Zien_Dat_De_Maaltijd_Geen_Allergieen_Bevat() {
         assertTrue(((MealsPage)currentPage).containsMealWith("Glutenvrij"));
         assertTrue(((MealsPage)currentPage).containsMealWith("Vegetarisch & glutenvrij"));
     }

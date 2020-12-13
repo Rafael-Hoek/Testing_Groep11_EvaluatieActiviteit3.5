@@ -16,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 
 public class GroepeerMaaltijdenSteps {
     private WebDriver driver;
-    private String path = "http://localhost:8080/Controller";
+    private String path = "http://localhost:8080/Testing_3_5_war_exploded/Controller";
 
     private Page currentPage;
 
@@ -36,12 +36,15 @@ public class GroepeerMaaltijdenSteps {
     }
 
 
-    @Given("dat er maaltijden op het menu staan")
+   // @Given("dat er maaltijden op het menu staan")
+    //public void test() {}
 
     @When("“Rafael” op het menu kijkt")
     public void Rafael_kijkt_op_het_menu() {
         currentPage = PageFactory.initElements(driver, MealsPage.class);
     }
+
+
 
     @Then("worden alle maaltijden getoond, gegroepeerd per categorie")
     public void maaltijden_worden_gegroepeerd_getoond() {

@@ -5,6 +5,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import ui.MealsPage;
 import ui.Page;
 
@@ -25,6 +26,7 @@ public class ToonPrijsSteps {
         //System.setProperty("webdriver.chrome.driver", "C:\\school\\chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\rickc\\Documents\\chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
+        currentPage = PageFactory.initElements(driver, MealsPage.class);
     }
 
     @After

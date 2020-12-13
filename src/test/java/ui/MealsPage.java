@@ -73,7 +73,17 @@ public class MealsPage extends Page{
     public boolean containsPrijs() {
         List<WebElement> trs = getDriver().findElements(By.cssSelector("td"));
         for (WebElement tr: trs) {
-            if (tr.getText().matches("€.*\\d.*")) {
+            if (tr.getText().matches(".*\\d.*")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean containsGeenInfo() {
+        List<WebElement> trs = getDriver().findElements(By.cssSelector("td"));
+        for (WebElement tr: trs) {
+            if (tr.getText().isEmpty()) {
                 return true;
             }
         }
