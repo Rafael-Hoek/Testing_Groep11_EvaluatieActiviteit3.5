@@ -1,5 +1,6 @@
 package ui;
 
+import domain.db.ProductDB;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -63,6 +64,16 @@ public class MealsPage extends Page{
         List<WebElement> trs = getDriver().findElements(By.cssSelector("h2"));
         for (WebElement tr: trs) {
             if (tr.getText().equals(categorie)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean containsPrijs() {
+        List<WebElement> trs = getDriver().findElements(By.cssSelector("td"));
+        for (WebElement tr: trs) {
+            if (tr.getText().matches("€.*\\d.*")) {
                 return true;
             }
         }
